@@ -32,11 +32,15 @@ var peer = new Peer(undefined, {
   host: '/',
   port: '30000'
 });
+socket.on('user-disconnected', userid => {
+  if (peers[userid]) peers[userid].close()
+})
+
 peer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);//calls that socket.on func from server.js
 })
 
-const connectNewuser = (userid, stream) => {
+function connectNewuser = (userid, stream) => {
   console.log("new user connected jeez!", userid)
   //calling the newly connected user!
   const call = peer.call(userid, stream)
@@ -44,11 +48,14 @@ const connectNewuser = (userid, stream) => {
   call.on('stream', userVideoStream => {
     addVidS(video, userVideoStream)
   })
-
+  call.on('close',() => {
+    video.remove()
+  })
+  peers[userid] = call
 }
 
 
-const addVidS = (video, stream) => {
+function addVidS = (video, stream) => {
   video.srcObject = stream;
   video.addEventListener('loadedmetadata', () => {
     video.play();
@@ -68,33 +75,30 @@ const muteUnmute = () => {
   }
 }
 
-const setMuteButton = () => {
-
-  document.querySelector('.main_mute_button').innerHTML = `
-  <i class = "fas fa-microphone-slash></i>
-  <span>Mute</span>`
-    ;
-}
-
-
-
-const setUnmuteButton=  () => {
-  document.querySelector('.main_mute_button').innerHTML = `
-
-      <i class="unmute fas fa-microphone-slash"></i>
-      <span>Unmute</span>
-    `;
-}
 const playStop = () => {
   console.log('object')
-  let enabled = myVideoStream.getVideoTracks()[0].enabled;
+  let enabled = myvidS.getVideoTracks()[0].enabled;
   if (enabled) {
-    myVideoStream.getVideoTracks()[0].enabled = false;
+    myvidS.getVideoTracks()[0].enabled = false;
     setPlayVideo()
   } else {
     setStopVideo()
-    myVideoStream.getVideoTracks()[0].enabled = true;
+    myvidS.getVideoTracks()[0].enabled = true;
   }
+}
+
+const setMuteButton = () => {
+  const html = `
+    <i class="fas fa-microphone"></i>
+    <span>Mute</span> `
+  document.querySelector('.main_mute_button').innerHTML = html;
+}
+
+const setUnmuteButton = () => {
+  const html = `
+    <i class="unmute fas fa-microphone-slash"></i>
+    <span>Unmute</span> `
+  document.querySelector('.main_mute_button').innerHTML = html;
 }
 
 const setStopVideo = () => {
