@@ -2,14 +2,13 @@ body{
   margin: 0;
   padding: 0;
 }
-#vidgrid{
+/* #vidgrid{
   display: flex;
   justify-content: center;
   position: -webkit-sticky;
   position: sticky;
     background-color: black;
-      /* height: 268px; */
-}
+      /* height: 268px; }*/
 video{
   height: 300px;
   width: 400px;
@@ -27,17 +26,28 @@ video{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px;
 }
 
 .main_controls{
   display: flex;
   background-color: black;
+  justify-content: space-between;
   color: antiquewhite;
   padding: 5px;
 }
 
 .main_controls_block{
   display: flex;
+}
+
+.main_controls_button:hover {
+  background-color: #343434;
+  border-radius: 5px;
+}
+
+.main_controls_button i {
+  font-size: 24px;
 }
 
 .main_controls_buttons{
@@ -48,4 +58,8 @@ video{
   padding: 8px 10px;
   min-width: 80px;
   cursor: pointer;
+}
+
+.unmute, .stop {
+  color: crimson;
 }

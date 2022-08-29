@@ -56,3 +56,58 @@ const addVidS = (video, stream) => {
   vidgrid.append(video)
 
 } // a func to add a vid stream
+
+const muteUnmute = () => {
+  const enabled = myvidS.getAudioTracks()[0].enabled;
+  if (enabled) {
+    myvidS.getAudioTracks()[0].enabled = false;
+    setUnmuteButton();
+  } else {
+    setMuteButton();
+    myvidS.getAudioTracks()[0].enabled = true;
+  }
+}
+
+const setMuteButton = () => {
+
+  document.querySelector('.main_mute_button').innerHTML = `
+  <i class = "fas fa-microphone-slash></i>
+  <span>Mute</span>`
+    ;
+}
+
+
+
+const setUnmuteButton=  () => {
+  document.querySelector('.main_mute_button').innerHTML = `
+
+      <i class="unmute fas fa-microphone-slash"></i>
+      <span>Unmute</span>
+    `;
+}
+const playStop = () => {
+  console.log('object')
+  let enabled = myVideoStream.getVideoTracks()[0].enabled;
+  if (enabled) {
+    myVideoStream.getVideoTracks()[0].enabled = false;
+    setPlayVideo()
+  } else {
+    setStopVideo()
+    myVideoStream.getVideoTracks()[0].enabled = true;
+  }
+}
+
+const setStopVideo = () => {
+  const html = `
+    <i class="fas fa-video"></i>
+    <span>Stop Video</span> `
+  document.querySelector('.main_video_button').innerHTML = html;
+}
+
+const setPlayVideo = () => {
+  const html = `
+  <i class="stop fas fa-video-slash"></i>
+    <span>Play Video</span>
+  `
+  document.querySelector('.main_video_button').innerHTML = html;
+}

@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
   <script src="vid.js" defer></script>
+  <link rel="stylesheet" href="style.css">
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
 <script>
@@ -27,11 +27,11 @@ const ROOM_ID="<%= viewId %>";
 
       <div class = "main_controls">
         <div class = "main_controls_block">
-          <div class = "main_controls_button">
+          <div onclick="muteUnmute()" class = "main_controls_button main_mute_button" >
             <i class = "fas fa-microphone"></i>
             <span>Mute</span>
           </div>
-          <div class = "main_controls_button">
+          <div onclick="playStop()" class = "main_controls_button main__video_button">
             <i class = "fas fa-video"></i>
             <span>Stop Video</span>
           </div>
