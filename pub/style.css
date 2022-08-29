@@ -2,18 +2,18 @@ body{
   margin: 0;
   padding: 0;
 }
-/* #vidgrid{
+vidgrid{
   display: flex;
   justify-content: center;
   position: -webkit-sticky;
   position: sticky;
     background-color: black;
-      /* height: 268px; }*/
-/*video{
+      /* height: 268px; }
+video{
   height: 300px;
   width: 400px;
   object-fit: cover;
-}*/
+}
 .main {
   height: 100vh;
   display: flex;
