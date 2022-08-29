@@ -9,11 +9,11 @@ body{
   position: sticky;
     background-color: black;
       /* height: 268px; }*/
-video{
+/*video{
   height: 300px;
   width: 400px;
   object-fit: cover;
-}
+}*/
 .main {
   height: 100vh;
   display: flex;
