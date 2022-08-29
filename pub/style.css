@@ -1,8 +1,13 @@
+body{
+  margin: 0;
+  padding: 0;
+}
 #vidgrid{
   display: flex;
   justify-content: center;
   position: -webkit-sticky;
   position: sticky;
+    background-color: black;
       /* height: 268px; */
 }
 video{
@@ -13,14 +18,7 @@ video{
 .main {
   height: 100vh;
   display: flex;
-}
-
-.main_left {
-  flex: 0.8;
-}
-
-.main_right {
-  flex: 0.2;
+  align-items: center;
 }
 
 .main_videos {
@@ -29,4 +27,25 @@ video{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.main_controls{
+  display: flex;
+  background-color: black;
+  color: antiquewhite;
+  padding: 5px;
+}
+
+.main_controls_block{
+  display: flex;
+}
+
+.main_controls_buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  min-width: 80px;
+  cursor: pointer;
 }
