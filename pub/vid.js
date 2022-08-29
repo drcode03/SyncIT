@@ -8,7 +8,7 @@ myvid.muted = true; //initally the video is muted!
 
 navigator.mediaDevices.getUserMedia({
   video: true,
-  audio: false
+  audio: true
 }).then(stream => {
   myvidS = stream;
   addVidS(myvid, stream);
@@ -40,7 +40,7 @@ peer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);//calls that socket.on func from server.js
 })
 
-function connectNewuser = (userid, stream) => {
+ connectNewuser = (userid, stream) => {
   console.log("new user connected jeez!", userid)
   //calling the newly connected user!
   const call = peer.call(userid, stream)
@@ -48,14 +48,15 @@ function connectNewuser = (userid, stream) => {
   call.on('stream', userVideoStream => {
     addVidS(video, userVideoStream)
   })
-  call.on('close',() => {
-    video.remove()
-  })
-  peers[userid] = call
+  // call.on('close', () => {
+  //   video.remove();
+  // });
+  // peers[userid] = call;
+
 }
 
 
-function addVidS = (video, stream) => {
+ addVidS = (video, stream) => {
   video.srcObject = stream;
   video.addEventListener('loadedmetadata', () => {
     video.play();

@@ -13,7 +13,7 @@
   <title>ACM meet</title>
   <script>const ROOM_ID="<%= viewId %>";</script>
   <style>
-      #video-grid{
+      #vidgrid{
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
@@ -27,7 +27,7 @@
    </style>
   
 </head>
-<body>
+<body  style="background-color:rgb(17, 16, 16);">
   <div class = "main">
 
       <div class ="main_videos">
@@ -42,7 +42,7 @@
             <i class = "fas fa-microphone"></i>
             <span>Mute</span>
           </div>
-          <div onclick="playStop()" class = "main_controls_button main__video_button">
+          <div onclick="playStop()" class = "main_controls_button main_video_button">
             <i class = "fas fa-video"></i>
             <span>Stop Video</span>
           </div>
