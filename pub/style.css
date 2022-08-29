@@ -1,0 +1,12 @@
+#vidgrid{
+  display: flex;
+  justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+      /* height: 268px; */
+}
+video{
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
+}
