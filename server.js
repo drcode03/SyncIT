@@ -2,8 +2,13 @@ const express = require('express')
 const fs = require("fs");
 const app = express()
 const server = require('http').Server(app)
-const io = require('socket.io')(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: '*'
+  }
+});
 const port = process.env.PORT || 30000;
+
 app.set('view engine', 'ejs');
 const { ExpressPeerServer } = require('peer')
 const peerServer = ExpressPeerServer(server, {
