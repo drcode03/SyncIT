@@ -7,10 +7,7 @@ const io = require("socket.io")(server, {
     origin: '*'
   }
 });
-const socket = io("/", {
-  transports: ["polling"]
-}
-);
+
 const port = process.env.PORT || 30000;
 
 app.set('view engine', 'ejs');
