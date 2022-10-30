@@ -29,7 +29,6 @@ app.get('/:view', (req, res) => {
   res.status(200);
   res.render('view', { viewId: req.params.view });
 })
-
 //creating the room
 io.on('connection', socket => {
   socket.on('join-room', (roomid, userid) => {
