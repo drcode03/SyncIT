@@ -35,7 +35,7 @@ var user_name = prompt("Please enter your name", "username");
 var peer = new Peer(undefined, {
   path: '/peerjs',
   host: '/',
-  port: '30000'
+  port: '443'
 });
 socket.on('user-disconnected', userid => {
   if (peers[userid]) peers[userid].close()
